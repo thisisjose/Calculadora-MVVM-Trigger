@@ -13,26 +13,66 @@ namespace CalculadoraMVVM.VistaModelo
         private string num2 = "";
         private string operador = "";
         private string mensaje = "";
-        private bool activationButton;
-        private string backgroundColor;
-        private string textColor;
+        private bool sumarSeleccionado;
+        private bool restarSeleccionado;
+        private bool multiplicarSeleccionado;
+        private bool dividirSeleccionado;
         #endregion
         #region OBJETOS
-        public string TextColor
+
+        
+        public bool SumarSeleccionado
         {
-            get { return textColor; }
-            set { SetValue(ref textColor, value); }
+            get { return sumarSeleccionado; }
+            set
+            {
+                if (sumarSeleccionado != value)
+                {
+                    SetValue(ref multiplicarSeleccionado, value);
+                    OnPropertyChanged(nameof(SumarSeleccionado));
+                }
+            }
         }
-        public string BackgroundColor
+        public bool RestarSeleccionado
         {
-            get { return backgroundColor; }
-            set { SetValue(ref backgroundColor, value); }
+            get { return restarSeleccionado; }
+            set
+            {
+                if (restarSeleccionado != value)
+                {
+                    SetValue(ref restarSeleccionado, value);
+                    OnPropertyChanged(nameof(RestarSeleccionado));
+                }
+            }
         }
-        public bool ActivationButton
+        public bool MultiplicarSeleccionado
         {
-            get { return activationButton; }
-            set { SetValue(ref activationButton, value); }
+            get { return multiplicarSeleccionado; }
+            set
+            {
+                if (multiplicarSeleccionado != value)
+                {
+                    multiplicarSeleccionado = value;
+                    OnPropertyChanged(nameof(MultiplicarSeleccionado));
+                }
+            }
         }
+
+        public bool DividirSeleccionado
+        {
+            get { return dividirSeleccionado; }
+            set
+            {
+                if (dividirSeleccionado != value)
+                {
+                    dividirSeleccionado = value;
+                    OnPropertyChanged(nameof(DividirSeleccionado));
+                }
+            }
+        }
+
+
+
         public string N1
         {
             get { return num1; }
@@ -66,10 +106,11 @@ namespace CalculadoraMVVM.VistaModelo
             {
                 SacarResultado();
             }
-            operador = "+";
+            operador += "+";
             Actualizar();
-            BackgroundColor = "#ffffff";
-            textColor = "#000000";
+       
+
+
         }
 
         private void Btn_restar()
@@ -81,6 +122,7 @@ namespace CalculadoraMVVM.VistaModelo
             }
             operador += "-";
             Actualizar();
+          
 
         }
 
@@ -92,6 +134,7 @@ namespace CalculadoraMVVM.VistaModelo
             }
             operador += "x";
             Actualizar();
+  
 
         }
 
@@ -103,6 +146,7 @@ namespace CalculadoraMVVM.VistaModelo
             }
             operador += "÷";
             Actualizar();
+  
 
         }
         private void SacarResultado()
@@ -152,53 +196,95 @@ namespace CalculadoraMVVM.VistaModelo
         }
         private void Num7()
         {
-            AgregarNumero("7");
+            NumeroAdd("7");
+            SumarSeleccionado = false;
+            RestarSeleccionado = false;
+            DividirSeleccionado = false;
+            MultiplicarSeleccionado = false;
+
+
         }
 
         private void Num8()
         {
-            AgregarNumero("8");
+            NumeroAdd("8");
+            SumarSeleccionado = false;
+            RestarSeleccionado = false;
+            DividirSeleccionado = false;
+            MultiplicarSeleccionado = false;
         }
 
         private void Num9()
         {
-            AgregarNumero("9");
+            NumeroAdd("9");
+            SumarSeleccionado = false;
+            RestarSeleccionado = false;
+            DividirSeleccionado = false;
+            MultiplicarSeleccionado = false;
         }
 
         private void Num4()
         {
-            AgregarNumero("4");
+            NumeroAdd("4");
+            SumarSeleccionado = false;
+            RestarSeleccionado = false;
+            DividirSeleccionado = false;
+            MultiplicarSeleccionado = false;
         }
 
         private void Num5()
         {
-            AgregarNumero("5");
+            NumeroAdd("5");
+            SumarSeleccionado = false;
+            RestarSeleccionado = false;
+            DividirSeleccionado = false;
+            MultiplicarSeleccionado = false;
         }
 
         private void Num6()
         {
-            AgregarNumero("6");
+            NumeroAdd("6");
+            SumarSeleccionado = false;
+            RestarSeleccionado = false;
+            DividirSeleccionado = false;
+            MultiplicarSeleccionado = false;
         }
 
         private void Num1()
         {
-            AgregarNumero("1");
+            NumeroAdd("1");
+            SumarSeleccionado = false;
+            RestarSeleccionado = false;
+            DividirSeleccionado = false;
+            MultiplicarSeleccionado = false;
         }
 
         private void Num2()
         {
-            AgregarNumero("2");
+            NumeroAdd("2");
+            SumarSeleccionado = false;
+            RestarSeleccionado = false;
+            DividirSeleccionado = false;
+            MultiplicarSeleccionado = false;
         }
 
         private void Num3()
         {
-            AgregarNumero("3");
+            NumeroAdd("3");
+            SumarSeleccionado = false;
+            RestarSeleccionado = false;
+            DividirSeleccionado = false;
+            MultiplicarSeleccionado = false;
         }
 
         private void Num0()
         {
 
-            AgregarNumero("0");
+            NumeroAdd("0");
+            SumarSeleccionado = false;
+            RestarSeleccionado = false;
+            DividirSeleccionado = false;
+            MultiplicarSeleccionado = false;
         }
 
         private void Click_punto()
@@ -217,7 +303,7 @@ namespace CalculadoraMVVM.VistaModelo
             }
         }
 
-        private void AgregarNumero(string numero)
+        private void NumeroAdd(string numero)
         {
             if (string.IsNullOrEmpty(operador))
             {
@@ -267,6 +353,10 @@ namespace CalculadoraMVVM.VistaModelo
                 num1 = resultado.ToString();
                 num2 = "";
                 operador = "";
+                SumarSeleccionado = false;
+                RestarSeleccionado = false;
+                DividirSeleccionado = false;
+                MultiplicarSeleccionado = false;
             }
         }
         private void Click_D()
@@ -281,11 +371,12 @@ namespace CalculadoraMVVM.VistaModelo
             }
 
             Actualizar();
+            SumarSeleccionado = false;
+            RestarSeleccionado = false;
+            DividirSeleccionado = false;
+            MultiplicarSeleccionado = false;
         }
-        public void Selected()
-        {
 
-        }
         #endregion
         #region COMANDOS
         public ICommand ActualizarPantallaCommand => new Command(Actualizar);
