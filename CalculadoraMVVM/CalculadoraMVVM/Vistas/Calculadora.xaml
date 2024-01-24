@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CalculadoraMVVM.Vistas.Calculadora">
+    <StackLayout Background="Black">
+
+        <Entry x:Name="Pantalla" BackgroundColor="Black" Margin="50,30,50,30" TextColor="White"
+               IsReadOnly="True" HorizontalTextAlignment="End" VerticalOptions="Center" Text="{Binding Mensaje}" FontSize="55"
+               VerticalTextAlignment="Center"/>
+
+        <Grid Margin="50,50,50,0" VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="C" Margin="0" Command="{Binding LimpiarCommand}" CornerRadius="25" BackgroundColor="#FAFAFA"/>
+                <Button Grid.Row="0" Grid.Column="2" Text="D" Margin="0" Command="{Binding ReturnCommand}" CornerRadius="30" WidthRequest="60" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#FAFAFA"/>
+                <Button Grid.Row="3" Grid.Column="3" Text="+" Margin="0" Command="{Binding SumarCommand}" CornerRadius="30" WidthRequest="60" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" BackgroundColor="#DBA901"/>
+
+
+                <Button Grid.Row="1" Grid.Column="0" Text="7" Margin="0" Command="{Binding Numero7Command}" CornerRadius="30" WidthRequest="60" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" BackgroundColor="#2E2E2E"/>
+                <Button Grid.Row="1" Grid.Column="1" Text="8" Margin="0" Command="{Binding Numero8Command}" CornerRadius="30" WidthRequest="60" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" BackgroundColor="#2E2E2E"/>
+                <Button Grid.Row="1" Grid.Column="2" Text="9" Margin="0" Command="{Binding Numero9Command}" CornerRadius="30" WidthRequest="60" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" BackgroundColor="#2E2E2E"/>
+                <Button Grid.Row="1" Grid.Column="3" Text="-" Margin="0" Command="{Binding RestarCommand}" CornerRadius="30" WidthRequest="60" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" BackgroundColor="#DBA901"/>
+
+
+                <Button Grid.Row="2" Grid.Column="0" Text="4" Margin="0" Command="{Binding Numero4Command}" CornerRadius="30" WidthRequest="60" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" BackgroundColor="#2E2E2E"/>
+                <Button Grid.Row="2" Grid.Column="1" Text="5" Margin="0" Command="{Binding Numero5Command}" CornerRadius="30" WidthRequest="60" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" BackgroundColor="#2E2E2E"/>
+                <Button Grid.Row="2" Grid.Column="2" Text="6" Margin="0" Command="{Binding Numero6Command}" CornerRadius="30" WidthRequest="60" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" BackgroundColor="#2E2E2E"/>
+                <Button Grid.Row="2" Grid.Column="3" Text="X" Margin="0" Command="{Binding MultiplicarCommand}" CornerRadius="30" WidthRequest="60" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" BackgroundColor="#DBA901"/>
+
+
+                <Button Grid.Row="3" Grid.Column="0" Text="1" Margin="0" Command="{Binding Numero1Command}" CornerRadius="30" WidthRequest="60" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" BackgroundColor="#2E2E2E"/>
+                <Button Grid.Row="3" Grid.Column="1" Text="2" Margin="0" Command="{Binding Numero2Command}" CornerRadius="30" WidthRequest="60" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" BackgroundColor="#2E2E2E"/>
+                <Button Grid.Row="3" Grid.Column="2" Text="3" Margin="0" Command="{Binding Numero3Command}" CornerRadius="30" WidthRequest="60" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" BackgroundColor="#2E2E2E"/>
+                <Button Grid.Row="0" Grid.Column="3" Text="/" Margin="0" Command="{Binding DividirCommand}" CornerRadius="30" WidthRequest="60" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" BackgroundColor="#DBA901"/>
+
+
+                <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Command="{Binding Numero0Command}" Text="0" Margin="0"  CornerRadius="30" TextColor="White" BackgroundColor="#2E2E2E"/>
+                <Button Grid.Row="4" Grid.Column="2" Text="."  Margin="0" Command="{Binding PuntitoCommand}" CornerRadius="30" WidthRequest="60" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" BackgroundColor="#2E2E2E"/>
+                <Button Grid.Row="4" Grid.Column="3" Margin="0" Text="=" Command="{Binding IgualCommand}" CornerRadius="30" WidthRequest="60" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" BackgroundColor="#DBA901"/>
+            </Grid>
+        </Grid>
+    </StackLayout>
+    </ContentPage>
